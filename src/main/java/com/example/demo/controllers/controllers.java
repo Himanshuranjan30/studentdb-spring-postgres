@@ -60,4 +60,11 @@ public class controllers {
 	{
 		return this.stuservice.updatestudent(s);
 	}
+	@GetMapping("/query")
+	public Map<String,Object> getfilter(@RequestParam Map<String, String> params)
+	{
+		Map<String, Object> resMap=new HashMap<>();
+		resMap=stuservice.getfilt(params);
+		return resMap;
+	}
 }
