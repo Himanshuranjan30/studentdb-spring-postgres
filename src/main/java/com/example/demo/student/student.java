@@ -75,8 +75,6 @@ public class student {
 	private Long id;
 	private String name;
 	private String email;
-
-	@Transient
 	private Integer age;
 
 }
