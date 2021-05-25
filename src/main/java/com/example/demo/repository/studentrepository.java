@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.student.student;
 @Repository
 public interface studentrepository extends JpaRepository<student, Long> {
-
+Iterable<student> findAll(Example stuExample);
 }
