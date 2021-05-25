@@ -43,4 +43,18 @@ public class studentservice {
 		this.sturepo.save(s);
 		return s;
 	}
+	public Map<String, Object> getfilt(Map<String, String> params)
+	{
+		ObjectMapper mapper=new ObjectMapper();
+		student stu=mapper.convertValue(params, student.class);
+		Example stuExample=Example.create(stu);
+		Iterable<student> studentsIterable=sturepo.findAll(stuExample);
+		List<student> students=new ArrayList<student>();
+		for(student stud:studentsIterable)
+			students.add(stud);
+		Map<String, Object> resMap=new HashMap<>();
+		resMap.put("result", students);
+		return resMap;
+	}
+
 }
